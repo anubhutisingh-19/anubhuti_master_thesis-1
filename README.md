@@ -61,33 +61,33 @@ Below is an overview of the key Python files and their functionalities:
 
 ### **1. ` baselineModel/`**  
 Implements baseline retrieval approaches.
-'BM25.ipynb' – Lexical retrieval with BM25.
-'DPR.ipynb' – Dense retrieval using transformers.
-'tf-idf.ipynb' – TF-IDF based baseline.
-'simpleRAG.py' – A simple RAG (Retrieval-Augmented Generation) prototype using CSV data.
+1. `BM25.ipynb` – Lexical retrieval with BM25.
+2. `DPR.ipynb` – Dense retrieval using transformers.
+3. `tf-idf.ipynb` – TF-IDF based baseline.
+4. `simpleRAG.py` – A simple RAG (Retrieval-Augmented Generation) prototype using CSV data.
 
 ### **2. `blazegraph/`**  
   SPARQL query generation and evaluation using Blazegraph.
-'eval.ipynb' – Approach evaluation using metrics (Precision, Recall, F1, MRR, hits@k,Rougue, Bleu, chrF).
-'LLMApache.ipynb' – Query generation and validation with LLM and using Apache Jena Fuseki graph database.
-'LLMBlazegraphVal.ipynb' – Batch SPARQL generation and LLM answer generation from Excel queries using Blazegraph graph database.
+1. `eval.ipynb` – Approach evaluation using metrics (Precision, Recall, F1, MRR, hits@k,Rougue, Bleu, chrF).
+2. `LLMApache.ipynb` – Query generation and validation with LLM and using Apache Jena Fuseki graph database.
+3. `LLMBlazegraphVal.ipynb` – Batch SPARQL generation and LLM answer generation from Excel queries using Blazegraph graph database.
 
 ### **3. `kgCreation/`**  
   Knowledge graph construction and schema management.
-'CompleteFINKG.ipynb' – Builds the complete financial knowledge graph from CSVs and RDF triples.
-'ExtendedFinKG_Pro_anonymized.ttl' – An anonymized RDF Turtle file representing an extended version of the financial knowledge graph.
-'ontology_schema.jsonld' – JSON-LD representation of the ontology used to define schema and classes in the knowledge graph.
+1. `CompleteFINKG.ipynb` – Builds the complete financial knowledge graph from CSVs and RDF triples.
+2. `ExtendedFinKG_Pro_anonymized.ttl` – An anonymized RDF Turtle file representing an extended version of the financial knowledge graph.
+3. `ontology_schema.jsonld` – JSON-LD representation of the ontology used to define schema and classes in the knowledge graph.
 
 ### **4. `LangGraph/`**  
   LangGraph-based RAG pipelines.
-'LG_hybrid_subgraph.ipynb' – Retrieves and processes hybrid subgraphs using LLM-assisted query parsing and subgraph ranking.
-'LG_hybrid_triple.ipynb' – Focuses on triple-level retrieval and evaluation within the LangGraph pipeline.
-'LG_LLMblazegraph.ipynb' – Combines LangGraph and Blazegraph to perform end-to-end retrieval and answer generation via SPARQL.
+1. `LG_hybrid_subgraph.ipynb` – Retrieves and processes hybrid subgraphs using LLM-assisted query parsing and subgraph ranking.
+2. `LG_hybrid_triple.ipynb` – Focuses on triple-level retrieval and evaluation within the LangGraph pipeline.
+3. `LG_LLMblazegraph.ipynb` – Combines LangGraph and Blazegraph to perform end-to-end retrieval and answer generation via SPARQL.
 
 ### **5. `RDF-RAG/`**  
   Final and hybridized implementation of the RDF-RAG pipeline.
-'hybrid.ipynb' - Main hybrid retrieval pipeline that uses both lexical and dense retrieval (via RRF), LLM parsing, subgraph linking, and natural language generation.
-'hybrid_triple.ipynb' - Variant of the hybrid model working at the triple-level rather than the subgraph level.
+1. `hybrid.ipynb` - Main hybrid retrieval pipeline that uses both lexical and dense retrieval (via RRF), LLM parsing, subgraph linking, and natural language generation.
+2. `hybrid_triple.ipynb` - Variant of the hybrid model working at the triple-level rather than the subgraph level.
 
 ## Generating Requirements File
 To automatically generate a `requirements.txt` file based on the libraries used in the project, you can use any of the following methods:
