@@ -1,19 +1,71 @@
-## Master's Thesis
-Enhancing the Capabilities of Large Language Models Using Knowledge Graphs in Finance.
+# Enhancing the Capabilities of Large Language Models Using Knowledge Graphs in Finance
+
+**Master’s Thesis** by Anubhuti Singh, April 2025  
+Paderborn University — Data Science Research Group
+
+---
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Prerequisites](#prerequisites)
-3. [Usage](#usage)
-4. [Blazegraph Setup](#blazegraph-setup-optional)
-5. [Python Scripts Overview](#python-scripts-overview)
-6. [Generating Requirements File](#generating-requirements-file)
+
+1. [Overview](#overview)  
+2. [Repository Structure](#repository-structure)  
+3. [Data & Knowledge Graph](#data--knowledge-graph)  
+4. [Prerequisites](#prerequisites)  
+5. [Installation & Setup](#installation--setup)  
+6. [Usage](#usage)  
+7. [Python Scripts Overview](#python--scripts--overview)  
+8. [Generating Requirements File](#generating--requirements--file)  
+9. [Acknowledgments](#acknowledgments)   
+
+---
+
+## Overview
+
+This project investigates how integrating **Knowledge Graphs (KGs)** with **Large Language Models (LLMs)** can improve accuracy and reasoning in organizational-domain question answering. We evaluate:
+
+- **Traditional Retrieval** (TF-IDF, BM25) vs. **Dense RAG** (DPR)  
+- **KG-Enhanced Retrieval** (subgraph vs. triple chunking + fusion)  
+- **SPARQL-Driven Querying** (LLM→SPARQL→KG)  
+
+---
+
+## Data & Knowledge Graph
+
+### Raw Data
+
+- **Source**: Four CSV/Excel tables (employees, organizations, applications, processes).  
+- **Format**: original, un-anonymized tables—preserve full fidelity and FK relationships.  
+- **Location**: stored off-repo (internal).
+
+### Knowledge Graph
+
+- **Construction**: `kgCreation/CompleteFINKG.ipynb` uses **rdflib** + `ontology_schema.jsonld`.  
+- **Output**: `kgCreation/ExtendedFinKG_anonymized.ttl` (Turtle).  
+- **Anonymization**: Node IDs & predicates are pseudonymized; The overall structure (the types of entities and how they relate) still uses clear, readable names.
+
+### Ground Truth
+
+- **Anonymized Q&A**: `anonymize/groundTruth_anonymized.xlsx` contains expert-verified queries & answers.  
+- **Regeneration**: run `anonymize/anonymize.ipynb` to adjust or re-anonymize.
+
+---
 
 ## Prerequisites
-- Python 3.x installed
-- Git for version control
-- (Required) Java installed to run Blazegraph locally on Windows
 
+- **Python 3.8+**  
+- **Conda** (recommended) or `virtualenv` + `pip`  
+- **Git**  
+- _(Optional)_ **Java 8+** for Blazegraph
+
+---
+
+## Installation & Setup
+
+### 1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/anubhuti_master_thesis-1-main.git
+   cd anubhuti_master_thesis-1-main
+   ```
 
 ### 2. **Create and activate a virtual environment (optional but recommended)**:
    ```bash
@@ -53,7 +105,7 @@ Enhancing the Capabilities of Large Language Models Using Knowledge Graphs in Fi
     - Mode: `triples`
     Default namespace `kb`
 
-    Update the namespace in the blazegraph url in all the files under `blazegraph` folder.
+    Update the namespace in the blazegraph url in all the files using graphDB `blazegraph`.
     http://localhost:9999/blazegraph/namespace/myGraph/sparql
     
 ## Python Scripts Overview
@@ -75,7 +127,7 @@ Implements baseline retrieval approaches.
 ### **3. `kgCreation/`**  
   Knowledge graph construction and schema management.
 1. `CompleteFINKG.ipynb` – Builds the complete financial knowledge graph from CSVs and RDF triples.
-2. `ExtendedFinKG_Pro_anonymized.ttl` – An anonymized RDF Turtle file representing an extended version of the financial knowledge graph.
+2. `ExtendedFinKG_anonymized.ttl` – An anonymized RDF Turtle file representing an extended version of the financial knowledge graph.
 3. `ontology_schema.jsonld` – JSON-LD representation of the ontology used to define schema and classes in the knowledge graph.
 
 ### **4. `LangGraph/`**  
